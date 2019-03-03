@@ -1,0 +1,22 @@
+{
+  "name": "httpserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.gzip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haimingyue/httpserver.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haimingyue/httpserver/issues"
+  },
+  "homepage": "https://github.com/haimingyue/httpserver#readme",
+  "dependencies": {
+    "mime": "^2.4.0"
+  }
+}
