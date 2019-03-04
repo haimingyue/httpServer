@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/haimingyue/httpserver#readme",
   "dependencies": {
-    "mime": "^2.4.0"
+    "mime": "^2.4.0",
+    "yargs": "^13.2.1"
   }
 }
