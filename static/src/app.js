@@ -37,22 +37,28 @@ class Server {
 
   async request(req, res) {
     // 先取到客户端想访问的路径
+    
     let {pathname} = url.parse(req.url)
     let filepath = path.join(config.root, pathname)
+    // if (pathname == '/favicon.ico') {
+    //   return this.sendError('not found', req, res);
+    // }
     try {
-      let statObj = await stat(filepath)
-      if(statObj.isDerectory) {
-        let files = await readdir(filepath)
+      let statObj = await stat(filepath);
+      console.log(filepath)
+      console.log(statObj.isDerectory())
+      if (statObj.isDirectory()) {//如果是目录的话，应该显示目录 下面的文件列表
+        let files = await readdir(filepath);
         files = files.map(file => ({
-          name: file,
-          url: path.join(pathname, file)
-        }))
+            name: file,
+            url: path.join(pathname, file)
+        }));
         let html = this.list({
-          title: pathname,
-          files
-        })
-        res.setHeader('Content-Type','text/html')
-        res.end()
+            title: pathname,
+            files
+        });
+        res.setHeader('Content-Type', 'text/html');
+        res.end(html);
       } else {
         this.sendFile(req, res, filepath, statObj)
       }
